@@ -1,12 +1,12 @@
 from datetime import datetime
 import pandas as pd
 
-#----------------------------------EXTRACT----------------------------------#
+#--------------------------------------EXTRACT--------------------------------------#
 data = "C:/Users/PC-DANILO/Downloads/ETL Python/Data/people-100.csv"
 df = pd.read_csv(data)
-#----------------------------------EXTRACT----------------------------------#
+#--------------------------------------EXTRACT--------------------------------------#
 
-#----------------------------------TRANSFORM--------------------------------#
+#--------------------------------------TRANSFORM------------------------------------#
 def data_standardization(df):
     df['First Name'] = df['First Name'].str.title()
     df['Last Name'] = df['Last Name'].str.title()
@@ -18,9 +18,10 @@ def data_standardization(df):
     return df
 
 stand_df = data_standardization(df)
-#----------------------------------TRANSFORM--------------------------------#
+#--------------------------------------TRANSFORM------------------------------------#
 
-
+#-------------------------------------LOAD------------------------------------------#
 df.to_csv("Data/people_clean.csv", index=False)
 print("Transformações aplicadas com sucesso!")
 print(df.head())
+#-------------------------------------LOAD------------------------------------------#
